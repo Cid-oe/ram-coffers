@@ -58,6 +58,9 @@ node distances:
     self.assertEqual(topology["num_nodes"], 2)
     self.assertEqual(topology["nodes"][0]["cpus"], [0, 1, 2, 3])
     self.assertEqual(topology["nodes"][0]["size_mb"], 33554432 // 1024)
+    self.assertEqual(topology["nodes"][0]["free_mb"], 12582912 // 1024)
+    self.assertEqual(topology["nodes"][1]["size_mb"], 67108864 // 1024)
+    self.assertEqual(topology["nodes"][1]["free_mb"], 50331648 // 1024)
 
   def test_parse_sysfs_numa_handles_memory_only_node_with_empty_cpulist(self):
     # Memory-only NUMA nodes have no CPUs, represented by an empty cpulist or newline
